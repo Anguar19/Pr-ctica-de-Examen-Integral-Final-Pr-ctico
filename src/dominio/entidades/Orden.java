@@ -3,7 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package dominio.entidades;
-
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 /**
  *
  * @author Anguar Alberto Rodriguez Fonseca

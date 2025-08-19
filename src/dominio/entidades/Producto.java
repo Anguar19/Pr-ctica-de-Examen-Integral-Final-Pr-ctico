@@ -3,7 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package dominio.entidades;
-
+import excepciones.PrecioInvalidoException;
+import excepciones.StockNegativoException;
 /**
  *
  * @author Anguar Alberto Rodriguez Fonseca
