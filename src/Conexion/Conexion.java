@@ -9,5 +9,5 @@ package Conexion;
  * @author Frank
  */
 public class Conexion {
-    
+    String conecion;
 }
