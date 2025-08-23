@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package dominio.entidades;
+import estrategias.Descuento;
+import estrategias.Pago;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
