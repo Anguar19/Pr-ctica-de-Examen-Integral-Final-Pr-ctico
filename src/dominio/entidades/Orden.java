@@ -50,28 +50,28 @@ public class Orden {
         calcularTotales();
     }
     
-    public void calcularTotales() {
-        totalBruto = items.stream().mapToDouble(ItemOrden::getSubtotal).sum();
-        
-        // Aplicar descuentos si existe estrategia
-        if (estrategiaDescuento != null) {
-            descuentos = estrategiaDescuento.aplicarDescuento(this);
-        } else {
-            descuentos = 0;
-        }
-        
-        // Calcular impuestos (13% IVA)
-        impuestos = (totalBruto - descuentos) * 0.13;
-        
-        totalNeto = totalBruto - descuentos + impuestos;
+    public void calculateTotales() {
+    totalBruto = items.stream().mapToDouble(ItemOrden::getSubtotal).sum();
+    
+    // Aplicar descuentos si existe estrategia
+    if (estrategiaDescuento != null) {
+        descuentos = estrategiaDescuento.aplicarDescuento(this);
+    } else {
+        descuentos = 0;
     }
     
-    public boolean procesarPago() {
-        if (estrategiaPago == null) {
-            throw new IllegalStateException("No se ha seleccionado método de pago");
-        }
-        return estrategiaPago.procesarPago(totalNeto);
+    // Calcular impuestos (13% IVA)
+    impuestos = (totalBruto - descuentos) * 0.13;
+    
+    totalNeto = totalBruto - descuentos + impuestos;
+}
+
+public boolean procesarPago() {
+    if (estrategiaPago == null) {
+        throw new IllegalStateException("No se ha seleccionado método de pago");
     }
+    return estrategiaPago.procesarPago(totalNeto);
+}
     
     // Getters y Setters
     public String getId() { return id; }

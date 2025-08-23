@@ -4,6 +4,8 @@
  */
 package dominio.entidades;
 
+import cifrado.UtilidadCifrado;
+
 /**
  *
  * @author Anguar Alberto Rodriguez Fonseca
