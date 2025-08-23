@@ -4,6 +4,8 @@
  */
 package ui;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Frank
@@ -15,8 +17,92 @@ public class CATALOGO extends javax.swing.JFrame {
      */
     public CATALOGO() {
         initComponents();
+        configurarEventosMenu();
     }
-
+    
+    /**
+     * Configura los eventos de los elementos del menú
+     */
+    private void configurarEventosMenu() {
+        // Menú Clientes
+        jMenuClientes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                abrirVentanaClientes();
+            }
+        });
+        
+        // Menú Catálogo (ventana actual)
+        JmenuCatalogo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JOptionPane.showMessageDialog(CATALOGO.this, "Ya se encuentra en la sección de Catálogo");
+            }
+        });
+        
+        // Menú Inventario
+        Jmenuinventario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                abrirVentanaInventario();
+            }
+        });
+        
+        // Menú Órdenes
+        JmenuOrdenes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                abrirVentanaOrdenes();
+            }
+        });
+        
+        // Menú Facturación
+        JmenuFacturacion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                abrirVentanaFacturacion();
+            }
+        });
+    }
+    
+    private void abrirVentanaClientes() {
+        try {
+            FramePyme ventanaClientes = new FramePyme();
+            ventanaClientes.setVisible(true);
+            ventanaClientes.setLocationRelativeTo(this);
+            this.dispose();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error al abrir Clientes: " + e.getMessage());
+        }
+    }
+    
+    private void abrirVentanaInventario() {
+        try {
+            INVENTARIO ventanaInventario = new INVENTARIO();
+            ventanaInventario.setVisible(true);
+            ventanaInventario.setLocationRelativeTo(this);
+            this.dispose();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error al abrir Inventario: " + e.getMessage());
+        }
+    }
+    
+    private void abrirVentanaOrdenes() {
+        try {
+            ORDENES ventanaOrdenes = new ORDENES();
+            ventanaOrdenes.setVisible(true);
+            ventanaOrdenes.setLocationRelativeTo(this);
+            this.dispose();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error al abrir Órdenes: " + e.getMessage());
+        }
+    }
+    
+    private void abrirVentanaFacturacion() {
+        try {
+            FACTURIZACION ventanaFacturacion = new FACTURIZACION();
+            ventanaFacturacion.setVisible(true);
+            ventanaFacturacion.setLocationRelativeTo(this);
+            this.dispose();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error al abrir Facturación: " + e.getMessage());
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
